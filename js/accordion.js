@@ -1,12 +1,20 @@
-export default function initAccordion() {
-  // ACCORDION LIST
-  const perguntas = document.querySelectorAll(".faq-lista dt");
+export default class Accordion {
+  constructor(perguntas) {
+    this.perguntas = document.querySelectorAll(perguntas);
+  }
 
-  perguntas.forEach((pergunta) => {
-    pergunta.addEventListener("click", () => {
-      pergunta.classList.toggle("dt-ativo");
-      const resposta = pergunta.nextElementSibling;
-      resposta.classList.toggle("ativo");
+  mostrarOcultar() {
+    this.perguntas.forEach((pergunta) => {
+      pergunta.addEventListener("click", () => {
+        pergunta.classList.toggle("dt-ativo");
+        const resposta = pergunta.nextElementSibling;
+        resposta.classList.toggle("ativo");
+      });
     });
-  });
+  }
+
+  init() {
+    this.mostrarOcultar();
+    return this;
+  }
 }
