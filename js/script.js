@@ -1,5 +1,5 @@
-import initNavTabs from "./nav-tabs.js";
 import Accordion from "./accordion.js";
+import NavTabs from "./nav-tabs.js";
 import initAnimaScroll from "./anima-scroll.js";
 import initModal from "./modal.js";
 import initTooltip from "./tooltip.js";
@@ -11,8 +11,14 @@ import initFetchBitcoin from "./fetch-bitcoin.js";
 const accordion = new Accordion(".faq-lista dt");
 accordion.init();
 
+const navtabs = new NavTabs(
+  "[data-animais='animais-menu'] li",
+  "[data-animais='animais-texto'] section"
+);
+navtabs.init();
+
 initSetNumeros();
-initNavTabs();
+//initNavTabs();
 //initAccordion();
 initAnimaScroll();
 initModal();
