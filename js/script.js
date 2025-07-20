@@ -1,7 +1,7 @@
 import Accordion from "./accordion.js";
 import NavTabs from "./nav-tabs.js";
 import initAnimaScroll from "./anima-scroll.js";
-import initModal from "./modal.js";
+import Modal from "./modal.js";
 import initTooltip from "./tooltip.js";
 import initDropdownMenu from "./dropdown-menu.js";
 import initAtendimento from "./atendimento.js";
@@ -17,11 +17,18 @@ const navtabs = new NavTabs(
 );
 navtabs.init();
 
+const modal = new Modal(
+  '[data-modal="abrir"]',
+  '[data-modal="container"]',
+  '[data-modal="fechar"]'
+);
+modal.init();
+
 initSetNumeros();
 //initNavTabs();
 //initAccordion();
 initAnimaScroll();
-initModal();
+//initModal();
 initTooltip();
 initDropdownMenu();
 initAtendimento();
