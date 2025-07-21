@@ -26,10 +26,14 @@ export default class Modal {
     }
   }
 
-  init() {
+  addEvents() {
     this.login.addEventListener("click", this.abrirModal);
     this.btnFechar.addEventListener("click", this.fecharModal);
     this.modalContainer.addEventListener("click", this.fecharModalFora);
+  }
+
+  init() {
+    this.addEvents();
     return this;
   }
 }
