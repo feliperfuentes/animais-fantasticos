@@ -1,30 +1,43 @@
-export default function initTooltip() {
-  const mapa = document.querySelector("[data-tooltip]");
+export default class Tooltip {
+  constructor(mapa) {
+    this.mapa = document.querySelector(mapa);
+    this.tooltip = this.criarTooltip();
+  }
 
-  function criarTooltip() {
-    const textTooltip = mapa.getAttribute("aria-label");
+  criarTooltip() {
+    const textTooltip = this.mapa.getAttribute("aria-label");
     const tooltip = document.createElement("div");
 
     tooltip.innerText = textTooltip;
     tooltip.classList.add("tooltip");
-    mapa.appendChild(tooltip);
+    this.mapa.appendChild(tooltip);
 
     return tooltip;
   }
-  const tooltip = criarTooltip();
 
-  mapa.addEventListener("mousemove", (e) => {
-    tooltip.style.display = "block";
+  mostrarTooltip() {
+    this.mapa.addEventListener("mousemove", (e) => {
+      this.tooltip.style.display = "block";
 
-    let posicaoHorizontal = e.clientX - e.target.getBoundingClientRect().x + 20;
+      let posicaoHorizontal =
+        e.clientX - e.target.getBoundingClientRect().x + 20;
 
-    let posicaoVertical = e.clientY - e.target.getBoundingClientRect().y + 20;
+      let posicaoVertical = e.clientY - e.target.getBoundingClientRect().y + 20;
 
-    tooltip.style.left = posicaoHorizontal + "px";
-    tooltip.style.top = posicaoVertical + "px";
-  });
+      this.tooltip.style.left = posicaoHorizontal + "px";
+      this.tooltip.style.top = posicaoVertical + "px";
+    });
+  }
 
-  mapa.addEventListener("mouseout", () => {
-    tooltip.style.display = "none";
-  });
+  esconderTooltip() {
+    this.mapa.addEventListener("mouseout", () => {
+      this.tooltip.style.display = "none";
+    });
+  }
+
+  init() {
+    this.mostrarTooltip();
+    this.esconderTooltip();
+    return this;
+  }
 }

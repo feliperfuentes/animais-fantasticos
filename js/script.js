@@ -2,7 +2,7 @@ import Accordion from "./accordion.js";
 import NavTabs from "./nav-tabs.js";
 import initAnimaScroll from "./anima-scroll.js";
 import Modal from "./modal.js";
-import initTooltip from "./tooltip.js";
+import Tooltip from "./tooltip.js";
 import initDropdownMenu from "./dropdown-menu.js";
 import initAtendimento from "./atendimento.js";
 import initSetNumeros from "./setNumeros.js";
@@ -24,12 +24,15 @@ const modal = new Modal(
 );
 modal.init();
 
+const tooltip = new Tooltip("[data-tooltip]");
+tooltip.init();
+
 initSetNumeros();
 //initNavTabs();
 //initAccordion();
 initAnimaScroll();
 //initModal();
-initTooltip();
+//initTooltip();
 initDropdownMenu();
 initAtendimento();
 initFetchBitcoin();
