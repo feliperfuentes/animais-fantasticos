@@ -1,7 +1,6 @@
 export default class SetNumeros {
-  constructor(url, numerosGrid) {
+  constructor(url) {
     this.url = url;
-    this.numerosGrid = numerosGrid;
   }
 
   setarNumeros() {
