@@ -5,7 +5,7 @@ import Modal from "./modal.js";
 import Tooltip from "./tooltip.js";
 import initDropdownMenu from "./dropdown-menu.js";
 import initAtendimento from "./atendimento.js";
-import initSetNumeros from "./setNumeros.js";
+import SetNumeros from "./setNumeros.js";
 import initFetchBitcoin from "./fetch-bitcoin.js";
 
 const accordion = new Accordion(".faq-lista dt");
@@ -27,7 +27,10 @@ modal.init();
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
-initSetNumeros();
+const setNumeros = new SetNumeros("../animaisapi.json", ".numeros-grid");
+setNumeros.init();
+
+//initSetNumeros();
 //initNavTabs();
 //initAccordion();
 initAnimaScroll();
