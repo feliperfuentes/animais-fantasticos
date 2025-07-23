@@ -1,4 +1,4 @@
-import initAnimaNumeros from "./anima-numeros.js";
+import AnimaNumeros from "./anima-numeros.js";
 
 export default function initAnimaScroll() {
   // ANIMAÇÃO AO SCROLL
@@ -12,7 +12,8 @@ export default function initAnimaScroll() {
       if (alturaSecao <= view / 1.5) {
         if (secao.classList.contains("numeros")) {
           if (!secao.classList.contains("scroll-in")) {
-            initAnimaNumeros();
+            const animaNumeros = new AnimaNumeros("[data-numero]");
+            animaNumeros.init();
           }
         }
         secao.classList.remove("scroll-out");
