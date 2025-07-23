@@ -1,19 +1,28 @@
-export default function initAnimaNumeros() {
-  const numeros = document.querySelectorAll("[data-numero]");
+export default class AnimaNumeros {
+  constructor(numeros) {
+    this.numeros = document.querySelectorAll(numeros);
+  }
 
-  numeros.forEach((numero) => {
-    let total = +numero.innerText;
-    let inicial = 0;
-    let tempo = Math.floor(total / 100);
+  animarNumeros() {
+    this.numeros.forEach((numero) => {
+      let total = +numero.innerText;
+      let inicial = 0;
+      let tempo = Math.floor(total / 100);
 
-    const mudarNumero = setInterval(() => {
-      numero.innerText = inicial;
-      inicial = inicial + tempo;
+      const mudarNumero = setInterval(() => {
+        numero.innerText = inicial;
+        inicial = inicial + tempo;
 
-      if (inicial > total) {
-        numero.innerText = total;
-        clearInterval(mudarNumero);
-      }
-    }, 25 * Math.random());
-  });
+        if (inicial > total) {
+          numero.innerText = total;
+          clearInterval(mudarNumero);
+        }
+      }, 25 * Math.random());
+    });
+  }
+
+  init() {
+    this.animarNumeros();
+    return this;
+  }
 }
