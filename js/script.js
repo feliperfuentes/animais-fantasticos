@@ -27,7 +27,7 @@ modal.init();
 const tooltip = new Tooltip("[data-tooltip]");
 tooltip.init();
 
-const setNumeros = new SetNumeros("../animaisapi.json", ".numeros-grid");
+const setNumeros = new SetNumeros("../animaisapi.json");
 setNumeros.init();
 
 //initSetNumeros();
