@@ -1,6 +1,6 @@
 import Accordion from "./accordion.js";
 import NavTabs from "./nav-tabs.js";
-import initAnimaScroll from "./anima-scroll.js";
+import AnimaScroll from "./anima-scroll.js";
 import Modal from "./modal.js";
 import Tooltip from "./tooltip.js";
 import initDropdownMenu from "./dropdown-menu.js";
@@ -36,10 +36,13 @@ const fetchBitcoin = new FetchBitcoin(
 );
 fetchBitcoin.init();
 
+const animascroll = new AnimaScroll(".grid-container > section");
+animascroll.init();
+
 //initSetNumeros();
 //initNavTabs();
 //initAccordion();
-initAnimaScroll();
+//initAnimaScroll();
 //initModal();
 //initTooltip();
 initDropdownMenu();
