@@ -1,11 +1,13 @@
 import AnimaNumeros from "./anima-numeros.js";
 
-export default function initAnimaScroll() {
-  // ANIMAÇÃO AO SCROLL
-  const secoes = document.querySelectorAll(".grid-container > section");
+export default class AnimaScroll {
+  constructor(secoes) {
+    this.secoes = document.querySelectorAll(secoes);
+    this.mostrarSecao = this.mostrarSecao.bind(this);
+  }
 
-  function mostrarSecao() {
-    secoes.forEach((secao) => {
+  mostrarSecao() {
+    this.secoes.forEach((secao) => {
       const view = window.innerHeight;
       const alturaSecao = secao.getBoundingClientRect().top;
 
@@ -24,5 +26,14 @@ export default function initAnimaScroll() {
       }
     });
   }
-  window.addEventListener("scroll", mostrarSecao);
+
+  addEvent() {
+    window.addEventListener("scroll", this.mostrarSecao);
+  }
+
+  init() {
+    this.mostrarSecao();
+    this.addEvent();
+    return this;
+  }
 }
