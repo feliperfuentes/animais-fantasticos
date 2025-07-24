@@ -6,7 +6,7 @@ import Tooltip from "./tooltip.js";
 import initDropdownMenu from "./dropdown-menu.js";
 import initAtendimento from "./atendimento.js";
 import SetNumeros from "./setNumeros.js";
-import initFetchBitcoin from "./fetch-bitcoin.js";
+import FetchBitcoin from "./fetch-bitcoin.js";
 
 const accordion = new Accordion(".faq-lista dt");
 accordion.init();
@@ -30,6 +30,12 @@ tooltip.init();
 const setNumeros = new SetNumeros("../animaisapi.json");
 setNumeros.init();
 
+const fetchBitcoin = new FetchBitcoin(
+  "https://blockchain.info/ticker",
+  ".btc-preco"
+);
+fetchBitcoin.init();
+
 //initSetNumeros();
 //initNavTabs();
 //initAccordion();
@@ -38,4 +44,4 @@ initAnimaScroll();
 //initTooltip();
 initDropdownMenu();
 initAtendimento();
-initFetchBitcoin();
+//initFetchBitcoin();
