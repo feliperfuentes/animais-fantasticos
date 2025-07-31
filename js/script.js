@@ -3,7 +3,7 @@ import NavTabs from "./nav-tabs.js";
 import AnimaScroll from "./anima-scroll.js";
 import Modal from "./modal.js";
 import Tooltip from "./tooltip.js";
-import initDropdownMenu from "./dropdown-menu.js";
+import DropdownMenu from "./dropdown-menu.js";
 import initAtendimento from "./atendimento.js";
 import SetNumeros from "./setNumeros.js";
 import FetchBitcoin from "./fetch-bitcoin.js";
@@ -39,12 +39,15 @@ fetchBitcoin.init();
 const animascroll = new AnimaScroll(".grid-container > section");
 animascroll.init();
 
+const dropdownMenu = new DropdownMenu("[data-dropdown] a", ".dropdown-menu");
+dropdownMenu.init();
+
 //initSetNumeros();
 //initNavTabs();
 //initAccordion();
 //initAnimaScroll();
 //initModal();
 //initTooltip();
-initDropdownMenu();
+//initDropdownMenu();
 initAtendimento();
 //initFetchBitcoin();

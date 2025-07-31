@@ -1,19 +1,29 @@
-export default function initDropdownMenu() {
-  const dropdown = document.querySelector("[data-dropdown] a");
-  const html = document.documentElement;
-  const dropdownMenu = document.querySelector(".dropdown-menu");
+export default class DropdownMenu {
+  constructor(menus, dropdownMenu) {
+    this.menus = document.querySelector(menus);
+    this.dropdownMenu = document.querySelector(dropdownMenu);
+    this.html = document.documentElement;
+    this.removeDropdownMenu = this.removeDropdownMenu.bind(this);
+  }
 
-  //ATIVAR AO CLICAR NO 'SOBRE'
-  dropdown.addEventListener("click", (e) => {
-    e.preventDefault();
-    dropdown.parentElement.classList.toggle("active");
-    html.addEventListener("click", clickOut);
-  });
+  activeDropdownMenu() {
+    //ATIVAR AO CLICAR NO 'SOBRE'
+    this.menus.addEventListener("click", (e) => {
+      e.preventDefault();
+      this.menus.parentElement.classList.toggle("active");
+      this.html.addEventListener("click", this.removeDropdownMenu);
+    });
+  }
 
-  //REMOVER AO CLICAR FORA
-  function clickOut(e) {
-    if (e.target !== dropdown && e.target !== dropdownMenu) {
-      dropdown.parentElement.classList.remove("active");
+  removeDropdownMenu(e) {
+    //REMOVER AO CLICAR FORA
+    if (e.target !== this.menus && e.target !== this.dropdownMenu) {
+      this.menus.parentElement.classList.remove("active");
     }
+  }
+
+  init() {
+    this.activeDropdownMenu();
+    return this;
   }
 }
