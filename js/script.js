@@ -4,7 +4,7 @@ import AnimaScroll from "./anima-scroll.js";
 import Modal from "./modal.js";
 import Tooltip from "./tooltip.js";
 import DropdownMenu from "./dropdown-menu.js";
-import initAtendimento from "./atendimento.js";
+import Atendimento from "./atendimento.js";
 import SetNumeros from "./setNumeros.js";
 import FetchBitcoin from "./fetch-bitcoin.js";
 
@@ -42,6 +42,13 @@ animascroll.init();
 const dropdownMenu = new DropdownMenu("[data-dropdown] a", ".dropdown-menu");
 dropdownMenu.init();
 
+const atendimento = new Atendimento(
+  [1, 2, 3, 4, 5],
+  [8, 18],
+  "[data-atendimento]"
+);
+atendimento.init();
+
 //initSetNumeros();
 //initNavTabs();
 //initAccordion();
@@ -49,5 +56,5 @@ dropdownMenu.init();
 //initModal();
 //initTooltip();
 //initDropdownMenu();
-initAtendimento();
+//initAtendimento();
 //initFetchBitcoin();
