@@ -1,17 +1,23 @@
-export default function initAtendimento() {
-  const diasAtendimento = [1, 2, 3, 4, 5];
-  const horariosAtendimento = [8, 18];
+export default class Atendimento {
+  constructor(diasAtendimento, horariosAtendimento, element) {
+    this.diasAtendimento = diasAtendimento;
+    this.horariosAtendimento = horariosAtendimento;
+    this.element = element;
+  }
 
-  function verificarAtendimento(dias, horas) {
+  verificarAtendimento(dias, horas) {
     const data = new Date();
     const hoje = data.getDay();
     const hora = data.getHours();
 
     if (hora >= horas[0] && hora < horas[1] && dias.includes(hoje)) {
-      const atendimento = document.querySelector("[data-atendimento]");
+      const atendimento = document.querySelector(this.element);
       atendimento.classList.add("aberto");
     }
   }
 
-  verificarAtendimento(diasAtendimento, horariosAtendimento);
+  init() {
+    this.verificarAtendimento(this.diasAtendimento, this.horariosAtendimento);
+    return this;
+  }
 }
